@@ -29,12 +29,10 @@ public class StdInOutProcessor {
         }
         final AuctionResult auctionInfo = engine.resolve();
         if (auctionInfo.isSuccessful()) {
-            System.out.println(new StringBuilder()
-                    .append(auctionInfo.getAmount())
-                    .append(" ")
-                    .append(auctionInfo.getRubles())
-                    .append(".")
-                    .append(auctionInfo.getKopecks()));
+            System.out.println(String.format("%d %d.%02d",
+                    auctionInfo.getAmount(),
+                    auctionInfo.getRubles(),
+                    auctionInfo.getKopecks()));
         } else {
             System.out.println("0 n/a");
         }
